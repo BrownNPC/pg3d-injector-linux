@@ -31,7 +31,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         artifacts: ${{ steps.upload.outputs.artifact }}
-        tag: ${{ github.ref }}
-        name: Release ${{ github.ref }}
+        tag: ${{ github.run_number }}
+        name: Release ${{ github.run_number }}
         commit: ${{ github.sha }}
         token: ${{ secrets.GITHUB_TOKEN }}
