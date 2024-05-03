@@ -2,13 +2,13 @@ import urllib.request
 import json
 import os
 
-def download_latest_release(repo_owner, repo_name, save_dir):
+def download_latest_release(repo_owner, repo_name, save_dir, filename='PixelGunCheat.dll'):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
     with urllib.request.urlopen(url) as response:
         data = json.loads(response.read())
         version = data['tag_name']
         download_url = data['assets'][0]['browser_download_url']  
-        file_name = 'PixelGunCheat.dll'
+        file_name = filename
         urllib.request.urlretrieve(download_url, file_name)
         return version
 
@@ -38,3 +38,12 @@ save_dir = "./"
 
 
 check_and_download(repo_owner, repo_name, save_dir)
+# check_and_download('nefarius', 'Injector', './')
+def download_injector():
+    if os.path.exists('Injector.exe'):
+        return True
+    url = 'https://github.com/BrownNPC/pg3d-injector-linux/raw/1/Injector.exe'
+
+    urllib.request.urlretrieve(url, 'Injector.exe')
+
+download_injector()

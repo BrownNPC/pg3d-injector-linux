@@ -2,13 +2,12 @@ import subprocess
 import protontricks as pt
 import sys
 from util import run_command
-from dldll import check_and_download
+import dldll
 
 # os.environ['WINEDEBUG'] = '-'
 
 # Find Steam path and Steam library paths
 
-check_and_download("stanuwu", "PixelGunCheatInternal", "./")
 def inject_dll():
     path = pt.find_steam_path()[-1]
     libs_path = pt.get_steam_lib_paths(path)
