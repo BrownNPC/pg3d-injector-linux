@@ -26,10 +26,6 @@ jobs:
       run: |
         pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py
 
-    - name: Move executable to dist folder
-      run: |
-        mkdir -p dist
-        mv pg3d-injector/dist/pg3d-injector dist/
 
     - name: Upload artifact
       uses: actions/upload-artifact@v2
