@@ -33,19 +33,7 @@ jobs:
     needs: build  # This job depends on the build job
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Download release artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: release
-
-      - name: Create GitHub Release
-        uses: ncipollo/release-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Replace with your access token
-        with:
-          tag_name: ${{ github.sha }}  # You can customize the tag name here
-          file_glob: release/*
-          draft: false  # Set to true to create a draft release
-          prerelease: false  # Set to true for pre-releases
+              - name: Create Release
+                uses: ncipollo/release-action@v1.14.0
+            
+            
