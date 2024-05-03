@@ -46,6 +46,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Replace with your access token
         with:
           tag_name: ${{ github.sha }}  # You can customize the tag name here
-          file_glob: release/*.exe
+          file_glob: release/*
           draft: false  # Set to true to create a draft release
           prerelease: false  # Set to true for pre-releases
