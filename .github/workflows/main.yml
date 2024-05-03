@@ -8,7 +8,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -25,15 +26,8 @@ jobs:
     - name: Build executable
       run: |
         pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py
-
-
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: pg3d-injector
-        path: dist/pg3d-injector
-
-    - name: Create Release
+        
+    - name: upload release
       uses: ncipollo/release-action@v1
       with:
         artifacts: ${{ steps.upload.outputs.artifact }}
