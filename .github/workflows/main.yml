@@ -26,10 +26,21 @@ jobs:
       run: |
         pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py
 
+    - name: Move executable to dist folder
+      run: |
+        mkdir -p dist
+        mv pg3d-injector/dist/pg3d-injector dist/
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: pg3d-injector
+        path: dist/pg3d-injector
+
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "dist/*"  # Adjust the path to match your generated executable file
+        artifacts: ${{ steps.upload.outputs.artifact }}
         tag: ${{ github.ref }}
         name: Release ${{ github.ref }}
         commit: ${{ github.sha }}
