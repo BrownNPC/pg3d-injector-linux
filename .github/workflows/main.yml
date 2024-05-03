@@ -20,7 +20,7 @@ jobs:
         run: python -m pip install pyinstaller
 
       - name: Build the executable
-        run: pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." main.py
+        run: pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py
 
       - name: Upload release artifact
         uses: actions/upload-artifact@v3
