@@ -24,7 +24,7 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." main.py
+        pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py
 
     - name: Create Release
       uses: ncipollo/release-action@v1
