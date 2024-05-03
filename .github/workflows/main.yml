@@ -33,7 +33,12 @@ jobs:
     needs: build  # This job depends on the build job
 
     steps:
-              - name: Create Release
-                uses: ncipollo/release-action@v1.14.0
+        - name: Create GitHub Release
+          uses: ncipollo/release-action@v1
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Replace with your secret
+          with:
+            artifacts: ${{ artifacts.release-artifact }}
+            tag: ${{ github.ref }}  # Use the pushed tag
             
             
