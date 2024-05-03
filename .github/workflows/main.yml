@@ -29,7 +29,7 @@ jobs:
     - name: Create Release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "dist/pg3d-injector"  # Adjust the path to match your generated executable file
+        artifacts: "dist/*"  # Adjust the path to match your generated executable file
         tag: ${{ github.ref }}
         name: Release ${{ github.ref }}
         commit: ${{ github.sha }}
