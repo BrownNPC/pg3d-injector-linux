@@ -1,4 +1,4 @@
-name: Build Executable
+name: Build and Release Executable
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.12.2'  # Replace 'x' with your desired Python version
+        python-version: '3.x'  # Replace 'x' with your desired Python version
 
     - name: Install dependencies
       run: |
@@ -24,10 +24,13 @@ jobs:
 
     - name: Build executable
       run: |
-        pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py
+        pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." main.py
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
+    - name: Create Release
+      uses: ncipollo/release-action@v1
       with:
-        name: executable
-        path: dist/main  # Adjust the path to match your generated executable file
+        artifacts: "dist/*"  # Adjust the path to match your generated executable file
+        tag: ${{ github.ref }}
+        name: Release ${{ github.ref }}
+        commit: ${{ github.sha }}
+        token: ${{ secrets.GITHUB_TOKEN }}
