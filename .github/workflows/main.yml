@@ -30,7 +30,7 @@ jobs:
     - name: upload release
       uses: ncipollo/release-action@v1
       with:
-        artifacts: ${{ steps.upload.outputs.artifact }}
+        artifacts: ./dist/pg3d-injector
         tag: ${{ github.run_number }}
         name: Release ${{ github.run_number }}
         commit: ${{ github.sha }}
