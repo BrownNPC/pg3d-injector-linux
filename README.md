@@ -1,6 +1,8 @@
 ## PG3D Injector Linux
 Injector for [PixelGun3DInternal](https://github.com/stanuwu/PixelGunCheatInternal)
 
+## [Download](https://github.com/BrownNPC/pg3d-injector-linux/releases/latest/download/pg3d-injector)
+
 ## Warning!
 - This Program is FREE SOFTWARE.
 - It will always be available for free, with the source code included.
