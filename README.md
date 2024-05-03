@@ -16,6 +16,6 @@ We are not encouraging modding or cheating with this repository. It is purely fo
 
 Based around https://github.com/nefarius/Injector
 
-## Build
+## Build (only for ppl who dont trust my build)
 install pyinstaller using pip, build the app with the command below. The executable will be in the dist/ folder.
-``` pyinstaller --onefile --add-data="protontricks/:protontricks/" --add-data="Injector.exe:." pg3d-injector.py ```
+``` pyinstaller --onefile --add-data="protontricks/:protontricks/" pg3d-injector.py ```
