@@ -1,6 +1,12 @@
 import subprocess
 import os
 
+import ssl
+
+# Disable SSL certificate verification globally
+ssl._create_default_https_context = ssl._create_unverified_context
+
+
 #  pyinstaller fix?
 env = dict(os.environ)  # make a copy of the environment
 lp_key = 'LD_LIBRARY_PATH'  # for GNU/Linux and *BSD.
