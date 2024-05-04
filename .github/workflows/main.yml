@@ -1,0 +1,34 @@
+name: Compile and Upload Artifact
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install pyinstaller
+
+    - name: Compile code
+      run: |
+        pyinstaller --onefile --add-data="protontricks:protontricks" pg3d-injector.py
+
+    - name: Archive artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: compiled-code
+        path: dist/pg3d-injector
+
