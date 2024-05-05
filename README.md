@@ -17,5 +17,5 @@ We are not encouraging modding or cheating with this repository. It is purely fo
 Based around https://github.com/nefarius/Injector
 
 ## Build (only for ppl who dont trust my build)
-install pyinstaller using pip, build the app with the command below. The executable will be in the dist/ folder.
+install pyinstaller using pip, build the app with the command below. The executable will be in the dist/ folder. Make sure to compile with python 3.9 for steamdeck support.
 ``` pyinstaller --onefile --add-data="protontricks/:protontricks/" pg3d-injector.py ```
