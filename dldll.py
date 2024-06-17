@@ -32,8 +32,8 @@ def check_and_download(repo_owner, repo_name, save_dir):
 
 
 # Replace these variables with your repository owner, repository name, and the path where you want to save the downloaded file
-repo_owner = "stanuwu"
-repo_name = "PixelGunCheatInternal"
+repo_owner = "BKUC-Development"
+repo_name = "BKUC"
 save_dir = "./"
 
 
